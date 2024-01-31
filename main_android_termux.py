@@ -1,5 +1,4 @@
 import asyncio
-import websockets
 import subprocess
 import time
 import json
@@ -13,6 +12,14 @@ def colored_text(text, color):
         'bright_cyan': '\033[96m'
     }
     return f"{colors[color]}{text}{colors['reset']}"
+
+try:
+    import websockets
+except ImportError:
+    print(colored_text("Module 'websockets' not found. Auto-installing...", 'warn'))
+    subprocess.run(['pip', 'install', 'websockets'])
+
+import websockets
 
 async def handle_client(websocket, path):
     try:
@@ -51,13 +58,7 @@ if __name__ == "__main__":
      github.com/DEVIX7
     ''', 'bright_cyan'))
 
-    try:
-        import websockets
-    except ImportError:
-        print(colored_text("Module 'websockets' not found. Auto-installing...", 'warn'))
-        subprocess.run(['pip', 'install', 'websockets'])
-
-    print(colored_text("Auto vip server rejoiner \" version 1.2 (android termux)\n", 'info'))
+    print(colored_text("Auto vip server rejoiner \" version 1.2.1 (android termux)\n", 'info'))
 
     server = websockets.serve(handle_client, "localhost", 8126)
 
