@@ -1,7 +1,11 @@
 # Auto VIP Server Rejoiner
 
-Version 1.2
+Version 1.2.1
 - Android Termux
+
+### Update Log:
+- Version 1.2.1
+    - Fixed auto installation of 'websockets' module
 
 ## Requirements
 
