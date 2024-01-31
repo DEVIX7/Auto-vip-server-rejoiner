@@ -1,4 +1,4 @@
-# Auto VIP Server Rejoiner Configuration
+# Docs | Config file
 
 ## Link Configuration
 
@@ -52,3 +52,4 @@ Displays the current version of the script. **DO NOT EDIT**
 ```
 
 # Made by DEVIX7
+[Auto VIP Server Rejoiner](https://github.com/DEVIX7/Auto-vip-server-rejoiner)
