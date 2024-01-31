@@ -1,4 +1,9 @@
 {
+    "msglink": "false",
     "link": "URL VIP SERVER HERE",
-    "version": "1.2.1"
+    
+    "ip": "localhost",
+    "port": "8126",
+
+    "version": "1.3.3"
 }
