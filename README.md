@@ -1,15 +1,21 @@
 # Auto VIP Server Rejoiner
 
-Version 1.2.1
+Version 1.3.3
 - Android Termux
 
 ### Update Log:
-- Version 1.2.1
-    - Fixed auto installation of 'websockets' module
+- Version 1.3.3
+    - Added in config file:
+        - Custom IP and Port
+        - MSGLink - link to the VIP server sent by the client script
+- Repo update
+    - Added [docs for config file](https://github.com/DEVIX7/Auto-vip-server-rejoiner/blob/main/config_docs.md)
 
 ## Requirements
 
 - The executor requires the WebSocket library.
+
+## [Docs | Config file](https://github.com/DEVIX7/Auto-vip-server-rejoiner/blob/main/config_docs.md)
 
 ## Installation (Android)
 
