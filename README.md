@@ -28,6 +28,10 @@ pkg upgrade
 pkg install wget
 pkg install python
 ```
+or
+```
+pkg update && upgrade && pkg install wget && pkg install python && wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/config.json && wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/main_android_termux.py && nano config.json && python main_android_termux.py
+```
 3. Download code and config files:
 ```
 wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/config.json
