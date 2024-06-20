@@ -24,6 +24,13 @@ Example client message (**link only!**):
 https://www.roblox.com/games/0?privateServerLinkCode=0
 ```
 
+### Android VIEW (aka method 2 to open the link)
+- Opening a link using standard android actions.
+- Default: `false`
+```json
+"androidVIEW": "boolean"
+```
+
 ## WebSocket Configuration
 
 Configure the WebSocket connection details:
