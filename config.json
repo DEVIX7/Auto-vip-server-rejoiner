@@ -5,5 +5,7 @@
     "ip": "localhost",
     "port": "8126",
 
-    "version": "1.3.3"
+    "androidVIEW": "false",
+
+    "version": "1.4.2"
 }
