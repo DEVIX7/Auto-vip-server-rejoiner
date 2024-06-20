@@ -1,15 +1,16 @@
 # Auto VIP Server Rejoiner
 
-Version 1.3.3
+Version 1.4.2
 - Android Termux
 
 ### Update Log:
-- Version 1.3.3
+- Version 1.4.2
     - Added in config file:
-        - Custom IP and Port
-        - MSGLink - link to the VIP server sent by the client script
+        - androidVIEW - method 2 to open the link (more info in docs for config file)
+
 - Repo update
-    - Added [docs for config file](https://github.com/DEVIX7/Auto-vip-server-rejoiner/blob/main/config_docs.md)
+    - main_android_termux.py
+    - Updated [docs for config file](https://github.com/DEVIX7/Auto-vip-server-rejoiner/blob/main/config_docs.md)
 
 ## Requirements
 
@@ -32,10 +33,6 @@ pkg install python
 ```
 wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/config.json
 wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/main_android_termux.py
-```
-or (for step 1, 2 and 3)
-```
-pkg update && upgrade && pkg install wget && pkg install python && wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/config.json && wget https://raw.githubusercontent.com/DEVIX7/Auto-vip-server-rejoiner/main/main_android_termux.py && nano config.json && python main_android_termux.py
 ```
 4. Edit the config file:
 ```
