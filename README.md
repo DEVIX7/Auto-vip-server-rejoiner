@@ -1,12 +1,11 @@
 # Auto VIP Server Rejoiner
 
-Version 1.4.2
+Version 1.4.4
 - Android Termux
 
 ### Update Log:
-- Version 1.4.2
-    - Added in config file:
-        - androidVIEW - method 2 to open the link (more info in docs for config file)
+- Version 1.4.4
+    - Fixing a bug Asyncio
 
 - Repo update
     - main_android_termux.py
