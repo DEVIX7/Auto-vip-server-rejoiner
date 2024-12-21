@@ -14,6 +14,13 @@ def colored_text(text, color):
     }
     return f"{colors[color]}{text}{colors['reset']}"
 
+try:
+    from websockets import serve
+except ImportError:
+    print(colored_text("Module 'websockets' not found. Auto-installing...", 'warn'))
+    subprocess.run(['pip', 'install', 'websockets'], check=True)
+    from websockets import serve
+
 with open('./config.json', 'r') as config_file:
     config = json.load(config_file)
     ip = config.get('ip', 'localhost')
@@ -23,12 +30,6 @@ with open('./config.json', 'r') as config_file:
     link = config.get('link', 'URL VIP SERVER HERE')
 
 link_display = 'none' if link == 'URL VIP SERVER HERE' else link
-
-try:
-    import websockets
-except ImportError:
-    print(colored_text("Module 'websockets' not found. Auto-installing...", 'warn'))
-    subprocess.run(['pip', 'install', 'websockets'], check=True)
 
 def kill_roblox():
     pid_result = subprocess.run(['pgrep', '-o', '-f', 'com.roblox.client'], stdout=subprocess.PIPE, text=True)
@@ -41,7 +42,7 @@ def kill_roblox():
 
     time.sleep(5)
 
-async def handle_client(websocket, path):
+async def handle_client(websocket):
     try:
         async for message in websocket:
             print(f"Received message from client: {message}")
@@ -57,9 +58,9 @@ async def handle_client(websocket, path):
                 open_url(link)
 
     except websockets.exceptions.ConnectionClosedError:
-        print(f"Client disconnected: {websocket.remote_address}")
+        print(colored_text(f"Client disconnected: {websocket.remote_address}", 'warn'))
     except Exception as e:
-        print(f"Error: {e}")
+        print(colored_text(f"Error: {e}", 'warn'))
 
 def extract_place_id_and_code(url):
     match = re.search(r'/games/(\d+)\?privateServerLinkCode=(\d+)', url)
@@ -77,6 +78,11 @@ def open_url(url):
         print(colored_text(f"Opening with termux: {url}", 'info'))
         subprocess.run(['termux-open-url', url], check=True)
 
+async def main():
+    server = await serve(handle_client, ip, port)
+    print(colored_text(f"WebSocket server started. Listening on ws://{ip}:{port}", 'success'))
+    await server.wait_closed()
+#made by devix7
 if __name__ == "__main__":
     subprocess.run(['clear'], check=True)
     print(colored_text('''
@@ -87,12 +93,7 @@ if __name__ == "__main__":
      github.com/DEVIX7
     ''', 'bright_cyan'))
 
-    print(colored_text("Auto vip server rejoiner \" version 1.4.2 (android termux)\n", 'info'))
+    print(colored_text("Auto vip server rejoiner \" version 1.4.4 (android termux)\n", 'info'))
     print(f"Config:\nmsglink: {msglink}\nlink: {link_display}\nip: {ip}\nport: {port}\nandroidVIEW: {androidVIEW}\n")
 
-    server = websockets.serve(handle_client, ip, port)
-
-    print(colored_text(f"WebSocket server started. Listening on ws://{ip}:{port}", 'success'))
-
-    asyncio.get_event_loop().run_until_complete(server)
-    asyncio.get_event_loop().run_forever()
+    asyncio.run(main())
