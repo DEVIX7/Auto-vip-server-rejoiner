@@ -17,6 +17,7 @@ try:
 except ImportError:
     print("Module 'requests' not found. Auto-installing...")
     subprocess.run(['pip', 'install', 'requests'], check=True)
+    import requests
 time.sleep(1)
 def check_version():
     try:
